@@ -14,11 +14,22 @@ datasource db {
 }
 
 model PostJob {
-  id  Int  @id @default(autoincrement())
-  jobName String
-  jobType String
-  jobDescription String
-  candidateNeeded Int
-  minimumSalary Int
-  maximumSalary Int
+  id               Int      @id @default(autoincrement())
+  jobName          String
+  jobType          String
+  jobDescription   String   @db.Text
+  candidateNeeded  Int
+  minimumSalary    Int?
+  maximumSalary    Int?
+  fullNameRequired      String @default("Mandatory") // "Mandatory" | "Optional" | "Off"
+  photoProfileRequired  String @default("Mandatory")
+  genderRequired        String @default("Optional")
+  domicileRequired      String @default("Optional")
+  emailRequired         String @default("Mandatory")
+  phoneNumberRequired   String @default("Mandatory")
+  linkedinLinkRequired  String @default("Optional")
+  dateOfBirthRequired   String @default("Optional")
+  
+  createdAt        DateTime @default(now())
 }
+
