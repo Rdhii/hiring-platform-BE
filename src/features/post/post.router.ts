@@ -6,4 +6,6 @@ const postController = new PostController();
 
 postRouter.get("/", postController.getPosts);
 
+postRouter.post("/jobs", postController.createJob);
+
 export default postRouter;
