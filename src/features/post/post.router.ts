@@ -3,9 +3,11 @@ import { PostController } from "./post.controller";
 
 const postRouter = Router();
 const postController = new PostController();
+postRouter.get("/:id", postController.getJobById);
 
 postRouter.get("/", postController.getPosts);
 
-postRouter.post("/jobs", postController.createJob);
+
+postRouter.post("/create", postController.createJob);
 
 export default postRouter;

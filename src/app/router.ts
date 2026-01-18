@@ -7,6 +7,6 @@ router.get("/", (req: Request, res: Response) => {
     res.send("Welcome to the Hiring Platform API");
 })
 
-router.use("/post", postRouter)
+router.use("/jobs", postRouter)
 
 export default router;

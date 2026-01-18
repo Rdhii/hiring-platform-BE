@@ -5,6 +5,13 @@ export class PostRepository {
         const posts = await prisma.postJob.findMany();
         return posts;
     }
+    
+    async getJobById(id: number) {
+        const jobs = await prisma.postJob.findUnique({
+            where: { id }
+        });
+        return jobs;
+    }
 
     async createJob(data: {jobName:string; jobType:string; jobDescription:string; candidateNeeded:number; minimumSalary:number; maximumSalary:number}) {
         const newJob = await prisma.postJob.create({

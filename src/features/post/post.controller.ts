@@ -9,6 +9,12 @@ export class PostController {
         return res.json(posts);
     }
 
+    getJobById = async (req: Request, res: Response) => {
+        const id = Number(req.params.id);
+        const job = await this.postService.getJobById(id);
+        return res.status(200).json(job);
+    }
+
     createJob = async (req: Request, res: Response) => {
         try {
             const { jobName, jobType, jobDescription, candidateNeeded, minimumSalary, maximumSalary } = req.body;
