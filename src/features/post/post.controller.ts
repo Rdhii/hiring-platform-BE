@@ -40,4 +40,10 @@ export class PostController {
             return res.status(500).json({ error: "Internal Server Error" });
         }
     }
+
+    getCandidatesByJobId = async (req: Request, res: Response) => {
+        const jobId = Number(req.params.id);
+        const candidates = await this.postService.getCandidatesByJobId(jobId);
+        return res.status(200).json(candidates);
+    }
 }

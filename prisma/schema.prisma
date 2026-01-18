@@ -29,7 +29,26 @@ model PostJob {
   phoneNumberRequired   String @default("Mandatory")
   linkedinLinkRequired  String @default("Optional")
   dateOfBirthRequired   String @default("Optional")
+
+  applications    CandidateApplication[]
   
   createdAt        DateTime @default(now())
+}
+
+model CandidateApplication {
+  id               Int      @id @default(autoincrement())
+  postJobId       Int
+  postJob        PostJob   @relation(fields: [postJobId], references: [id])
+  fullName        String
+  email           String
+  phoneNumber     String
+  dateOfBirth    DateTime?
+  domicile        String?
+  gender         String?
+  linkedinLink   String?
+
+  createdAt      DateTime @default(now())
+
+  @@index([postJobId])
 }
 

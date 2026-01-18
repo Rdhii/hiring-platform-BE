@@ -27,4 +27,11 @@ export class PostRepository {
         });
         return newJob;
     }
+
+    async getCandidatesByJobId(jobId: number) {
+        const applications = await prisma.candidateApplication.findMany({
+            where: { postJobId: jobId }
+        })
+        return applications;
+    }
 }
