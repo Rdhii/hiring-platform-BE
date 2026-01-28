@@ -31,6 +31,7 @@ model PostJob {
   dateOfBirthRequired   String @default("Optional")
 
   applications    CandidateApplication[]
+  profileRequired ProfileRequired[]
   
   createdAt        DateTime @default(now())
 }
@@ -50,5 +51,19 @@ model CandidateApplication {
   createdAt      DateTime @default(now())
 
   @@index([postJobId])
+}
+
+model ProfileRequired {
+  id               Int      @id @default(autoincrement())
+  postJobId       Int
+  postJob        PostJob   @relation(fields: [postJobId], references: [id], onDelete: Cascade)
+  fullName     String @default("Mandatory") // "Mandatory" | "Optional" | "Off"
+  photoProfile String @default("Mandatory")
+  gender       String @default("Optional")
+  domicile     String @default("Optional")
+  email        String @default("Mandatory")
+  phoneNumber  String @default("Mandatory")
+  linkedinLink String @default("Optional")
+  dateOfBirth  String @default("Optional")
 }
 
