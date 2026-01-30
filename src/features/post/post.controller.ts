@@ -25,6 +25,7 @@ export class PostController {
         minimumSalary,
         maximumSalary,
         profileRequired,
+        
       } = req.body;
 
       if (
