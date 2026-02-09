@@ -18,7 +18,7 @@ export class PostController {
   createJob = async (req: Request, res: Response) => {
     try {
       const {
-        jobName,
+        jobName, 
         jobType,
         jobDescription,
         candidateNeeded,
