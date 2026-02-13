@@ -115,7 +115,6 @@ async createCandidate(data: CreateCandidateDto) {
     throw new Error("Phone number is required");
   } 
 
-  // 3️⃣ Kalau lolos → simpan
   return await prisma.candidateApplication.create({
     data,
   });
