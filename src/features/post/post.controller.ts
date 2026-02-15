@@ -64,4 +64,8 @@ export class PostController {
     const candidates = await this.postService.getCandidatesByJobId(jobId);
     return res.status(200).json(candidates);
   };
+
+  loginExample = async (req: Request, res: Response) => {
+    return res.send("test 123")
+  };
 }

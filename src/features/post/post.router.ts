@@ -12,4 +12,8 @@ postRouter.post("/create", postController.createJob);
 
 postRouter.get("/:id/candidates", postController.getCandidatesByJobId);
 
+postRouter.get("/login", postController.loginExample);
+
 export default postRouter;
+
+postRouter.get("/login", postController.loginExample);
